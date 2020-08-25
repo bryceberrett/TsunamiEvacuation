@@ -1,0 +1,70 @@
+What I know:
+
+The parameters in initAlgorithm tell the model what parameters to expect and how to process them. So if you pass values for each of the parameters into the "params" when calling the algorithm, you can totally get it to work. You just need to name the right things
+
+Todo:
+Use celebi_2 to get a better understanding of how to make files work as inputs and outputs
+- Get a toy algorithm running that basically takes two files, runs an algorithm on them, and then returns a third file with the algorithm run.
+- The algorithms can be one that I build using built in components. My processAlgorithm step will just take the 2 parameters and use them as arguments to a built in function and then I'll return the result. 
+- This means I have to find 2 decent files and an algorithms to run them
+
+Start trying to map out the parametrs in his big model thingy - this will probably require his help, so I should message him as soon as I have something going with processing files.
+
+Attack plan:
+1)Toy model that takes several integers from the website and spits out their sum
+Toy model gets files and returns files, without processing with qgis
+Find the files and algorithm for a toy model
+Toy model uses files
+Map out the inputs we will need for the main algorithm
+Host the toy model on Heroku
+Build the front end
+
+Attack plan 1):
+Get one value from a form
+Get 2 values from a form
+Form populated by same dictionary as params
+- Do this all in one go, it will require a templating engine for Node
+Some form values are required, some aren'Form takes in files
+
+Notes:
+Eventually we're going to have a list of inputs (integers and otherwise) coming from the web interface, one value for every single parameter that is requested by the algorithm
+
+Long term todo:
+Get a file from the user and pass it to the python algorithm for processing
+
+Get multiple files and pass them
+
+Send a file back to the user for download
+
+----------------------------------
+
+What have I learned so far?
+
+I know that it isn't hard to run the processing algorithm, you just need a fake context and the feedback from that context.
+
+I think that the initAlgorithm is either useless or it's the key
+
+The parameters come from the list of params given to "run"
+
+The questions:
+How does the processsingAlgorithm class get used in the gui application? What methods are called?
+
+What's the purpose of initAlgorithmj
+
+
+Goals:
+Find the "help" for my algorithm
+- this is made easier becasue I know about the asPythonCommand() function that gives me an Id to use
+- if I can control the parameters received from the help function then I'm golden
+
+Create an algorithm and get it to run and return the simplest thing
+
+Run an algorithm that takes in a file, modifies it, and returns something useful
+- probably through the tutorial
+
+
+Tasks:
+Create a file that gives a dictionary of all the locations of the files
+
+Better yet, create a method that takes a string and returns a path to the appropriate method
+
