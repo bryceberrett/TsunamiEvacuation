@@ -19,6 +19,14 @@ const port = 8000
 const pug = require('pug')
 const mainPage = pug.compileFile('page.pug')
 
+// Make the temporary directory where we store the files we receive from the server
+
+var dir = './tmp';
+
+if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+}
+
 // These are the fields that we are gathering from the user
 
 const fields = {
@@ -31,22 +39,47 @@ const fields = {
 // Create lists of names and field types
 
 const keys = Object.keys(fields)
-
+const textKeys = Object.keys(fields).filter(key => fields[key] != "file")
+const fileKeys = Object.keys(fields).filter(key => fields[key] == "file")
 
 //Serve the main page
 
 app.get('/', async (req, res) => {
-	console.log(Object.keys(fields))
 	res.send(mainPage({'keys': keys, 'types':fields}))
 })
 
 app.post('/', (req, res) => {
 	ans = ""
-	//fields.forEach(element => {
-		//ans += element + ": " + req.body[element] + "\n"
-	//})
 
-	res.send(ans)
+	// Download the data for the file inputs
+	
+	for(k of fileKeys){
+		var filename = k;
+		var data = req.files[k].data
+		var fd = fs.openSync("./tmp/" + filename, 'w')
+		fs.writeSync(fd, data)
+		fs.closeSync(fd)
+		ans += data
+	}
+
+	// Put all of the information necessary into a Python script
+
+	var pyDictPath = "./tmp/params.py" 
+
+	// Process these with a python script
+	
+	// Clear the temporary directory
+
+	fs.unlinkSync(pyDictPath)
+
+	for(k of fileKeys){
+		var path = "./tmp/" + k
+		fs.unlinkSync(path)
+	}
+
+
+	// Send them back the result of the QGIS script
+	res.send("Success")
 })
 
 // Handle the posted result
