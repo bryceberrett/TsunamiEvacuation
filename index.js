@@ -30,10 +30,13 @@ if (!fs.existsSync(dir)){
 // These are the fields that we are gathering from the user
 
 const fields = {
-	"Mewtwo": "text",
-	"Celebi": "file",
-	"Lugia": "file",
-	"Ho-oH": "text"
+	//"Mewtwo": "text",
+	//"Celebi": "file",
+	//"Lugia": "file",
+	//"Ho-oH": "text"
+	"DEM": "file",
+	"Roads": "file",
+	"Evacuation Elevation": "text"
 }
 
 // Create lists of names and field types
