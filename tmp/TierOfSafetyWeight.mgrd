@@ -23,7 +23,7 @@
       <OPTION type="choice" id="RESULT_NODATA_CHOICE" name="Assign ..." index="0">NoData value of input grid</OPTION>
       <INPUT type="grid" id="INPUT" name="Grid" system="PARAMETERS_GRID_SYSTEM">
         <TOOL library="io_gdal" id="0" name="Import Raster">
-          <OPTION type="file" id="FILES" name="Files">"/tmp/processing_LfWjcj/5b6a8b8c36244a20a4c84dbfc18991b7/OUTPUT.tif"</OPTION>
+          <OPTION type="file" id="FILES" name="Files">"/tmp/processing_CrNtdv/5ae331a32b9a4af3a239884b396b2d57/OUTPUT.tif"</OPTION>
           <OPTION type="choice" id="MULTIPLE" name="Multiple Bands Output" index="2">automatic</OPTION>
           <OPTION type="text" id="SELECTION" name="Select from Multiple Bands"/>
           <OPTION type="boolean" id="TRANSFORM" name="Transformation">true</OPTION>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAGA_METADATA>
+  <DATABASE></DATABASE>
+  <SOURCE></SOURCE>
+  <HISTORY saga-version="7.3.0">
+    <TOOL library="grid_tools" id="15" name="Reclassify Grid Values">
+      <OPTION type="grid_system" id="PARAMETERS_GRID_SYSTEM" name="Grid system">
+        <CELLSIZE>3.99955667326734</CELLSIZE>
+        <XMIN>506898.1931</XMIN>
+        <XMAX>516993.0741433267</XMAX>
+        <YMIN>9088730.830698358</YMIN>
+        <YMAX>9098797.714844972</YMAX>
+      </OPTION>
+      <OPTION type="choice" id="METHOD" name="Method" index="1">range</OPTION>
+      <OPTION type="double" id="MIN" name="minimum value">0.000000</OPTION>
+      <OPTION type="double" id="MAX" name="maximum value">2.000000</OPTION>
+      <OPTION type="double" id="RNEW" name="new value">5.000000</OPTION>
+      <OPTION type="choice" id="ROPERATOR" name="operator" index="0">&lt;=</OPTION>
+      <OPTION type="boolean" id="NODATAOPT" name="no data values">true</OPTION>
+      <OPTION type="double" id="NODATA" name="new value">1.000000</OPTION>
+      <OPTION type="boolean" id="OTHEROPT" name="other values">true</OPTION>
+      <OPTION type="double" id="OTHERS" name="new value">5.000000</OPTION>
+      <OPTION type="choice" id="RESULT_NODATA_CHOICE" name="Assign ..." index="0">NoData value of input grid</OPTION>
+      <INPUT type="grid" id="INPUT" name="Grid" system="PARAMETERS_GRID_SYSTEM">
+        <TOOL library="io_gdal" id="0" name="Import Raster">
+          <OPTION type="file" id="FILES" name="Files">"/tmp/processing_ZohFqU/b51aaa09a965491b9acc460e527c25d0/output.tif"</OPTION>
+          <OPTION type="choice" id="MULTIPLE" name="Multiple Bands Output" index="2">automatic</OPTION>
+          <OPTION type="text" id="SELECTION" name="Select from Multiple Bands"/>
+          <OPTION type="boolean" id="TRANSFORM" name="Transformation">true</OPTION>
+          <OPTION type="choice" id="RESAMPLING" name="Resampling" index="3">B-Spline Interpolation</OPTION>
+          <OUTPUT type="grid_list" id="GRIDS" name="Grids">output</OUTPUT>
+        </TOOL>
+      </INPUT>
+      <OUTPUT type="grid" id="RESULT" name="Reclassified Grid">output (Reclassified)</OUTPUT>
+    </TOOL>
+  </HISTORY>
+  <FILE></FILE>
+  <DESCRIPTION></DESCRIPTION>
+  <PROJECTION>
+    <OGC_WKT>PROJCS["WGS 84 / UTM zone 49S",GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4326"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",111],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",10000000],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH],AUTHORITY["EPSG","32749"]]</OGC_WKT>
+    <PROJ4>+proj=utm +zone=49 +south +datum=WGS84 +units=m +no_defs</PROJ4>
+    <EPSG>-1</EPSG>
+  </PROJECTION>
+</SAGA_METADATA>
